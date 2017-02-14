@@ -3,7 +3,12 @@
 -Removido el TITANIC (Borrar el titanic_fs de server.cfg)
 -El /qb y /cono ya funcionan
 -Arreglado el "Bievenido"
--Retirado el texto de /robarshop en la tienda de electronica (Linea 12166 y 11760)
--Retirado el mapeado de FBI (60940 hasta 60957)
--Retirado el mapeado del gobierno (63181 hasta 63328)
--Retirado el mapeado de sistema judicial ( 63365  hasta 63685)
+-Retirado el texto de /robarshop en la tienda de electronica (GCCIEDIT1)
+-Retirado el mapeado de FBI (GCCIEDIT2)
+-Retirado el mapeado del gobierno (GCCIEDIT3)
+-Retirado el mapeado de sistema judicial ( GCCIEDIT4)
+-Retirado interior y exterior de DEA (GCCIEDIT5 y GCCIEDIT6)
+-Retirado el mapeo de la nueva comisaria (GCCIEDIT7)
+-Retirados TextLabel varios (GCCIEDIT8 hasta GCCIEDIT16) (Se retiraron los de jobs de vendedor de droga chaleco armas también)
+-Editado lugar de arresto de LSPD en LS (GCCIEDIT17 y GCCIEDIT18)
+-Retirados pickups varios(GCCIEDIT19 hasta GCCIEDIT28) (Se retiraron los de jobs de vendedor de droga chaleco armas también)
