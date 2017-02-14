@@ -1,1 +1,9 @@
-asdasdad
+-Corregido el "admindutyo" y error en selección de edad .
+-Eliminado el MOTD (Vaciar el archivo motd.ini en /scriptfiles ).
+-Removido el TITANIC (Borrar el titanic_fs de server.cfg)
+-El /qb y /cono ya funcionan
+-Arreglado el "Bievenido"
+-Retirado el texto de /robarshop en la tienda de electronica (Linea 12166 y 11760)
+-Retirado el mapeado de FBI (60940 hasta 60957)
+-Retirado el mapeado del gobierno (63181 hasta 63328)
+-Retirado el mapeado de sistema judicial ( 63365  hasta 63685)
