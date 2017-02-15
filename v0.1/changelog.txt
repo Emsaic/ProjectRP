@@ -12,3 +12,6 @@
 -Retirados TextLabel varios (GCCIEDIT8 hasta GCCIEDIT16) (Se retiraron los de jobs de vendedor de droga chaleco armas también)
 -Editado lugar de arresto de LSPD en LS (GCCIEDIT17 y GCCIEDIT18)
 -Retirados pickups varios(GCCIEDIT19 hasta GCCIEDIT28) (Se retiraron los de jobs de vendedor de droga chaleco armas también)
+-Se puso el exterior de LSPD (GCCIEDIT29)
+-Retirado el porton de sistema judicial (GCCIEDIT30 & GCCIEDIT31)
+-Añadido porton de LSPD (GCCIEDIT32, GCCIEDIT33, GCCIEDIT34,GCCIEDIT36)
