@@ -15,3 +15,5 @@
 -Se puso el exterior de LSPD (GCCIEDIT29)
 -Retirado el porton de sistema judicial (GCCIEDIT30 & GCCIEDIT31)
 -Añadido porton de LSPD (GCCIEDIT32, GCCIEDIT33, GCCIEDIT34,GCCIEDIT36)
+-Movido entrada a LSPD desde el garage (Estaba en la comisaria vieja y ahora en la de siempre) (GCCIEDIT37)
+-Se volvio a poner los edificios que se sacaron para los mapeos viejos (la comisaria vieja (GCCIEDIT38) sistema judicial(GCCIEDIT39) y DEA (GCCIEDIT40))
