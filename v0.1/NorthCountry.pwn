@@ -88,6 +88,7 @@ static gTeam[MAX_PLAYERS];
 #define 			TIEMPOFIRE					60// Tiempo en aparecer incendio (en segundos).
 #define 			APAGARFIRE 					120 // Tiempo dado al bo para apagar el incendio (en segundos).
 #define 			USERFILE 					"accounts/%s.ini"
+#define             CAMARAPRUEBA                "camara%s.ini"
 #define 			USERFILEOLD 				"users/%s.ini"
 #define 			INFINITY_HEALTH 			Float:0x7F800000
 //*******************Defines FaceAngles*******************
@@ -523,6 +524,7 @@ new bill5;
 new bill6;
 new strR[255];
 //****************ADOKING****************
+
 new ZLMensaje[][] =
 {
    	" a North Country RP -Roleplay RolePlay, disfruta de esta gran comunidad.",
@@ -6172,6 +6174,7 @@ public OnPlayerRequestClass(playerid, classid)
 
 public OnPlayerConnect(playerid)
 {
+
 //***SISTEMA AFK***
 Afk[playerid]=0;
 //***sistema de fire***
@@ -7440,6 +7443,7 @@ function ConvertAccount(playerid)
 
 public OnPlayerDisconnect(playerid, reason)
 {
+
 //****sistema afk***
 Afk[playerid]=0;
 TextDrawHideForPlayer(playerid,Text:Messageafk);
@@ -7827,11 +7831,12 @@ function depositogate()
        MoveDynamicObject(depgate, 1619.69995117,-1852.59997559,12.50000000, 2.5);
        return 1;
 }
-/*function CloseCell2()
+/*function CloseCell2() //gccieditprueba
 {
 	MoveDynamicObject(fen2,1425.90002441,-1555.00000000,4334.70019531,4);
 	return 1;
-}*/
+}
+*/
 function CloseCell3()
 {
 	MoveDynamicObject(fen3,1429.50000000,-1554.80004883,4334.70019531,4);
@@ -8457,6 +8462,7 @@ Muertes[playerid] = 0;
 
 public OnPlayerSpawn(playerid)
 {
+  
     //********sistema experiencia******//
 	new string[128];
  	format(string, sizeof(string), "Nvl: %d Exp: %d/%d", Info[playerid][pLevel],  Info[playerid][pExp], (Info[playerid][pLevel]+1)*(explevel));
@@ -11043,6 +11049,12 @@ forward SpeedoUpdate();
 //******************************************************************************
 public OnGameModeInit()
 {
+
+
+
+
+  
+  
     AntiDeAMX();
 	SendRconCommand("onfoot_rate 40");
 	SendRconCommand("incar_rate 40");
@@ -11820,7 +11832,7 @@ CreateDynamic3DTextLabel("Ammunation - Para comprar un arma\n{FFFFFF}Usa /compra
 CreateDynamic3DTextLabel("Paintball Menu\n{FFFFFF}Usa /arena ",                                                    		     COLOR_LIGHTBLUE, 305.3528,-141.9280,1004.0625+0.6,8.0); // Paintball LS
 CreateDynamic3DTextLabel("Paintball Menu\n{FFFFFF}Usa /arena ",                                                     		 COLOR_LIGHTBLUE, 301.8077,-76.3016,1001.6091+0.6,8.0); // Paintball SF
 //GCCIEDIT10CreateDynamic3DTextLabel("Sitio de arresto DEA\n{FFFFFF}Usa /arrestar",                                                      COLOR_LIGHTBLUE,912.8051,-1037.6465,31.8984+0.6,4.0);// Arresto FBI
-/*GCCIEDIT17*/CreateDynamic3DTextLabel("Sitio de arresto LSPD\n{FFFFFF}Usa /arrestar",                                                     COLOR_LIGHTBLUE,1568.6630,-1692.5809,5.8906+0.6,4.0);// Arresto LSPD
+/*GCCIEDIT17*/CreateDynamic3DTextLabel("Sitio de arresto LSPD\n{FFFFFF}Usa /arrestar",                                       COLOR_LIGHTBLUE, 215.2639,120.0654,999.0156+0.6,4.0);// Arresto LSPD   1568.6630,-1692.5809,5.8906
 //GCCIEDIT11CreateDynamic3DTextLabel("Sitio de arresto FBI\n{FFFFFF}Usa /arrestar",                                                      COLOR_LIGHTBLUE,317.4623,-1506.9045,24.9219+0.6,4.0); // Arresto Cia
 CreateDynamic3DTextLabel("Sitio de arresto LSPD Dillimore\n{FFFFFF}Usa /arrestar",										     COLOR_LIGHTBLUE,613.3228,-589.1623,17.2266+0.6,4.0);///arrest(LSPD)
 //CreateDynamic3DTextLabel("Solo Policías\n{FFFFFF}Usa /arrestojudicial",                            					 	     COLOR_LIGHTBLUE,1735.1194,-1325.8646,13.2494+0.6,3.0); // Arresto Sistema Judicial
@@ -12049,10 +12061,9 @@ lockerout = CreateButton(267.21679688,112.66992188,1005.12280273,179.99450684);
 chiefout = CreateButton(232.50000000,119.38476562,1010.81384277,0.00000000);
 chiefin = CreateButton(229.67089844,119.66992188,1010.81384277,179.99450684);
 roofkey = CreateButton(1565.93652344,-1667.35058594,28.85165977,179.99450684);
-garagekey = CreateButton(956.05670, -1475.21399, 13.92737,   0.00000);
+garagekey = CreateButton(1566.9000244141,-1689.5999755859,6.5999999046326,0.00000); //GCCIEDIT37
 /*GCCIEDIT33*/
 
-//
 pdgate1 = CreateDynamicObject(971,1589.053344,-1638.123168,14.122960,0.000000,0.000000,180);
 /*GCCIEDIT34*/
 pdgate2 = CreateDynamicObject(2990,1545.90002441,-1627.80004883,16.29999924,0.00000000,0.00000000,90.00000000);
@@ -12173,7 +12184,7 @@ Talararbol[3] = CreatePickup(1239,2,-515.7106,-1457.4116,11.8509);
 	}
 //**************************************Pickups**************************************
 //Comandos
-//EDITGCCI22CreatePickup(1239, 23, 1009.2381,48.5105,55.3221); // Robar tienda electronica. GCCIEDIT1
+//GCCIEDIT22CreatePickup(1239, 23, 1009.2381,48.5105,55.3221); // Robar tienda electronica. GCCIEDIT1
 CreatePickup(1239, 23, 1006.0530,52.7181,55.3221); // Comprar tienda electronica.
 CreatePickup(1239, 23, 1798.4093,-1721.1476,2.3278); // Tienda de muebles
 CreatePickup(1239, 23, 985.7003, -1171.2474, 24.9037); // Compra de Tarjeta De Credito LS
@@ -12181,18 +12192,18 @@ CreatePickup(1240, 23, 1174.6427,-1308.5641,13.9963, -1); // DejarPT - SAMD
 CreatePickup(1240, 23, 2684.0684,-2525.4067,13.3136, -1); // DejarPT - Guardia Nacional
 CreatePickup(1239, 23, 240.4770,112.7777,1003.2188, 500); // Pagar Multas LS
 CreatePickup(1240, 23, 1658.9924,-1807.1152,13.5508, -1); // Embargar
-//EDITGCCI20CreatePickup(1247, 23, 912.8051,-1037.6465,31.8984, -1); // Arresto CIA
-/*EDITGCCI18*/CreatePickup(1247, 23, 1568.6630,-1692.5809,5.8906, -1); // Arresto SAPD
-//EDITGCCI19CreatePickup(1247, 23, 317.4623,-1506.9045,24.9219, -1); // Arresto FBI
+//GCCIEDIT20CreatePickup(1247, 23, 912.8051,-1037.6465,31.8984, -1); // Arresto CIA
+/*GCCIEDIT18*/CreatePickup(1247, 23, 215.2639,120.0654,999.0156, -1); // Arresto SAPD
+//GCCIEDIT19CreatePickup(1247, 23, 317.4623,-1506.9045,24.9219, -1); // Arresto FBI
 CreatePickup(1247, 23, 613.3228,-589.1623,17.2266, -1); // Arresto sapd dillimore
-//EDITGCCI21CreatePickup(1247, 23, 1735.1194,-1325.8646,13.2494); // Arresto Judicial
+//GCCIEDIT21CreatePickup(1247, 23, 1735.1194,-1325.8646,13.2494); // Arresto Judicial
 CreatePickup(1247, 23, 2648.9587,-2384.3145,13.6328); // Arresto SAEM
 CreatePickup(1239, 23, 308.15,-141.46,999.60); // Comprar Arma LS
 CreatePickup(1239, 23, 305.3528,-141.9280,1004.0625); // PaintBall LS
 CreatePickup(1239, 23, 767.6719,13.6320,1000.7010); // GYM LS
 CreatePickup(1239, 23, 252.39,117.47,1003.22); // Licencias Compra LS
 CreatePickup(1239, 23, 2499.3447,-1958.7496,13.5810); // Licencia de Taxi Compra LS
-//EDITGCCI22CreatePickup(1274, 23, -100.9438, 16.4130, 3.0362, -1); // /vendercosecha ls
+//GCCIEDIT22CreatePickup(1274, 23, -100.9438, 16.4130, 3.0362, -1); // /vendercosecha ls
 CreatePickup(1254, 23, 1407.7058,-1307.4529,9.0442); // pickup /contrato
 //Equipo de Facciones
 CreatePickup(334,  23, 267.0328,109.8991,1004.6172); // pickup SAPD
@@ -12201,9 +12212,9 @@ CreatePickup(356,  23, 332.6553,2345.9578,8905.4180); // pickup SAEM
 CreatePickup(1239, 23, 1188.8640,-1351.4312,2423.2649); // pickup SAMD
 CreatePickup(2894, 23, -2782.3835,273.8393,23.7078); // pickup LSTV
 CreatePickup(365,  23, 3162.8804,-1896.5898,1042.2070); // pickup crazy motors
-//EDITGCCI27CreatePickup(1212, 23, 362.1189,-52.2308,-93.8500); // pickup GOB
+//GCCIEDIT27CreatePickup(1212, 23, 362.1189,-52.2308,-93.8500); // pickup GOB
 CreatePickup(353,  23, 2355.2322,-647.0360,128.0547); // pickup hitman
-//EDITGCCI26CreatePickup(2894, 23, 2135.5605,1300.7083,7698.8999); // pickup s. Judicial
+//GCCIEDIT26CreatePickup(2894, 23, 2135.5605,1300.7083,7698.8999); // pickup s. Judicial
 CreatePickup(353,  23, -12.3236,44.0121,4013.2021); // pickup rusos
 CreatePickup(353,  23, 1201.6417,-2015.9741,71.6094); // pickup lcn
 CreatePickup(353,  23, 1242.5764,-761.2462,5080.7578); // pickup ykz
@@ -12212,7 +12223,7 @@ CreatePickup(336,  23, 2496.9312,-1696.5073,1014.7422); // pickup groove
 CreatePickup(336,  23, 2075.1438,-1585.4275,-13.3922); // pickup ballas
 CreatePickup(336,  23, 791.7727,-1713.1125,411.1650); // pickup latin
 CreatePickup(336,  23, -827.7561,472.9102,1866.8000); // pickup sureño
-//EDITGCCI25CreatePickup(1242, 23, 253.5987,76.6707,1003.6406); // pickup CIA
+//GCCIEDIT25CreatePickup(1242, 23, 253.5987,76.6707,1003.6406); // pickup CIA
 CreatePickup(353,  23, -3804.9746,1306.9164,75.5859); // pickup Alqaeda
 CreatePickup(366,  23, -1683.8572,-2074.3633,19.2459); // pickup bomberos
 //Jobs Los Santos
@@ -12223,10 +12234,10 @@ CreatePickup(1210, 23, 1029.7059,-1340.5267,13.8093);// Chofer de Viajes LS
 CreatePickup(1210, 23, 2104.8408,-1810.0991,13.5547); // Pizzero LS
 //GCCIEDIT28CreatePickup(1210, 23, 1689.9009,-1494.9858,13.5469); // Vendedor de Drogas LS
 CreatePickup(1210, 23, 2218.0525,-2662.2483,13.5536); // Camionero LS
-//EDITGCCI22CreatePickup(1210, 23, 2487.4983,-1410.0270,28.8375); // Vendedor de Armas LS
+//GCCIEDIT22CreatePickup(1210, 23, 2487.4983,-1410.0270,28.8375); // Vendedor de Armas LS
 CreatePickup(1210, 23, 463.3296,-1957.5437,16.7922);// Taxi LS
-//EDITGCCI23CreatePickup(1210, 23, 2355.1594,-1169.2037,28.0057); // Traficante De Drogas LS
-//EDITGCCI24CreatePickup(1210, 23, 1423.9009,-1355.9692,13.2810); //Vendedor de Chalecos LS
+//GCCIEDIT23CreatePickup(1210, 23, 2355.1594,-1169.2037,28.0057); // Traficante De Drogas LS
+//GCCIEDIT24CreatePickup(1210, 23, 1423.9009,-1355.9692,13.2810); //Vendedor de Chalecos LS
 CreatePickup(1210, 23, 659.3577,-634.6320,16.3359, -1); // Artesano LS
 CreatePickup(1210, 23, 2420.0740, -1509.0592, 24.0213, -1); // Heladero LS
 CreatePickup(1210, 23, -382.2627,-1426.3954,26.1396, -1); // granjero
@@ -14915,7 +14926,7 @@ if(dialogid == 750) // Si cambiaste la ID del dialogo antes, cambiala aca tambie
     {
 		if (listitem == 0)
 		{
-			SetPlayerPos(playerid, 958.9954,-1472.4977,13.3025);
+			SetPlayerPos(playerid, 1568.4991,-1689.9709,6.2188);
 		 	SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
@@ -48539,6 +48550,7 @@ RemoveBuildingForPlayer(playerid, 4018, 1791.7969, -1716.9844, 12.5234, 0.25);
 RemoveBuildingForPlayer(playerid, 4027, 1783.1016, -1702.3047, 14.3516, 0.25);
 RemoveBuildingForPlayer(playerid, 1260, 1805.0234, -1692.4453, 25.1484, 0.25);
 //NUEVA COMISARÍA
+/*GCCIEDIT38
 RemoveBuildingForPlayer(playerid, 6153, 1007.3125, -1435.1641, 19.1172, 0.25);
 RemoveBuildingForPlayer(playerid, 6154, 1003.1484, -1467.6953, 16.5781, 0.25);
 RemoveBuildingForPlayer(playerid, 6155, 941.2500, -1447.7734, 21.4219, 0.25);
@@ -48555,6 +48567,7 @@ RemoveBuildingForPlayer(playerid, 6151, 1007.3125, -1435.1641, 19.1172, 0.25);
 RemoveBuildingForPlayer(playerid, 621, 950.1250, -1420.2656, 12.1016, 0.25);
 RemoveBuildingForPlayer(playerid, 1307, 996.7578, -1415.3438, 12.3672, 0.25);
 RemoveBuildingForPlayer(playerid, 5783, 908.5391, -1384.3281, 24.5156, 0.25);
+*/
 //*************************Tienda electronica*************************
 RemoveBuildingForPlayer(playerid, 5839, 1198.9922, -1128.8125, 27.8438, 0.25);
 RemoveBuildingForPlayer(playerid, 1223, 1176.8438, -1135.4141, 22.8125, 0.25);
@@ -48801,10 +48814,10 @@ RemoveBuildingForPlayer(playerid, 1315, 2311.2266, -1954.4531, 15.8125, 0.25);
 RemoveBuildingForPlayer(playerid, 1635, 2302.1016, -1958.6563, 17.0156, 0.25);
 RemoveBuildingForPlayer(playerid, 1226, 2309.3672, -1933.9609, 16.3906, 0.25);
 RemoveBuildingForPlayer(playerid, 712, 2300.9688, -1909.5547, 21.5000, 0.25);
-//*********************objetos Removidos Sistema judicial exterior*********************
-RemoveBuildingForPlayer(playerid, 4026, 1497.7969, -1543.7109, 17.5547, 0.25);
-RemoveBuildingForPlayer(playerid, 4218, 1497.7031, -1546.6172, 43.9922, 0.25);
-RemoveBuildingForPlayer(playerid, 4016, 1497.7969, -1543.7109, 17.5547, 0.25);
+//*********************objetos Removidos Sistema judicial exterior*********************/ GCCIEDIT39
+//RemoveBuildingForPlayer(playerid, 4026, 1497.7969, -1543.7109, 17.5547, 0.25);
+//RemoveBuildingForPlayer(playerid, 4218, 1497.7031, -1546.6172, 43.9922, 0.25);
+//RemoveBuildingForPlayer(playerid, 4016, 1497.7969, -1543.7109, 17.5547, 0.25);
 //*********************objetos Removidos Grovve*********************
 RemoveBuildingForPlayer(playerid, 1265, 2488.8047, -1684.7891, 12.8125, 0.25);
 RemoveBuildingForPlayer(playerid, 3594, 2532.9844, -1719.4297, 13.1797, 0.25);
@@ -48829,7 +48842,9 @@ RemoveBuildingForPlayer(playerid, 1230, 2475.0000, -1653.6094, 12.7891, 0.25);
 RemoveBuildingForPlayer(playerid, 3593, 2437.4844, -1644.1172, 12.9844, 0.25);
 //*********************Proximo MEca*********************
 
-//*********************Remove DEA Exterior**********************
+//*********************Remove DEA Exterior**********************/ GCCIEDIT40
+
+/*
 RemoveBuildingForPlayer(playerid, 5854, 992.5313, -962.7344, 60.7813, 0.25);
 RemoveBuildingForPlayer(playerid, 727, 931.7891, -991.1719, 37.0234, 0.25);
 RemoveBuildingForPlayer(playerid, 5998, 913.9531, -1015.6328, 72.5313, 0.25);
@@ -48839,6 +48854,7 @@ RemoveBuildingForPlayer(playerid, 732, 882.6172, -1008.9297, 36.5234, 0.25);
 RemoveBuildingForPlayer(playerid, 1267, 874.6875, -1021.8672, 45.5313, 0.25);
 RemoveBuildingForPlayer(playerid, 1294, 916.5156, -985.1250, 41.8438, 0.25);
 RemoveBuildingForPlayer(playerid, 1307, 937.9375, -986.5391, 37.0313, 0.25);
+*/
 //*****************************FIN REMOVES*****************************
 }
 
