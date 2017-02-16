@@ -3,3 +3,4 @@
 -Retirados los vehiculos de GOBIERNO y SISTEMA JUDICIAL (GCCIEDIT43)
 -Retirados los vehiculos de CIA (GCCIEDIT44)
 -Retirados los vehiculos de HITMAN (GCCIEDIT45)
+-Movidos los autos de LSPD (Quedan varios en LV por las dudas)
