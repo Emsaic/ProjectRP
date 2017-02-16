@@ -1,1 +1,5 @@
-asdasdad
+-Retirados los vehiculos del FBI (GCCIEDIT41)
+-Retirados los vehiculos de SAEM (GCCIEDIT42)
+-Retirados los vehiculos de GOBIERNO y SISTEMA JUDICIAL (GCCIEDIT43)
+-Retirados los vehiculos de CIA (GCCIEDIT44)
+-Retirados los vehiculos de HITMAN (GCCIEDIT45)
