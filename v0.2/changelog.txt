@@ -4,3 +4,7 @@
 -Retirados los vehiculos de CIA (GCCIEDIT44)
 -Retirados los vehiculos de HITMAN (GCCIEDIT45)
 -Movidos los autos de LSPD (Quedan varios en LV por las dudas)
+-LSPD y SAMD son la misma faccion(GCCIEDIT46 hasta GCCIEDIT49)
+-Movido el /dejarpt hacia el hospital (GCCIEDIT50 hasta GCCIEDIT52)
+-Se volvio a poner el mapeo de sistema judicial (GCCIEDIT53 hasta GCCIEDIT55)
+-Se movieron las ambulancias a LSPD (GCCIEDIT56)
