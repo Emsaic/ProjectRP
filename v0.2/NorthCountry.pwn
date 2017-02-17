@@ -2363,7 +2363,7 @@ new rejalcn2;
 //****************************Rejas ****************************
 new peaje1, peaje2;
 //*******************Vehiculos De Facciones*******************
-new SAPDVehicles[60];
+new SAPDVehicles[64];
 new SAMDVehicles[7];
 new MecanicosVehicle[7];
 new FBIVehicle[16];
@@ -4324,7 +4324,7 @@ new model = GetVehicleModel( vehicleid );
 		}
 		else if(SAMD_Vehicle(vehicleid))
   		{
-  		    if(Team_SAMD(playerid)) { return 1; }
+  		    if(Team_LSPD(playerid)) { return 1; }
   		    else
 		    {
 			    RemovePlayerFromVehicle(playerid);
@@ -4332,7 +4332,7 @@ new model = GetVehicleModel( vehicleid );
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz);
 				NOPCheck(playerid);
-				SendClientMessageEx(playerid, COLOR_GRAD2, "No perteneces a SAMD.");
+				SendClientMessageEx(playerid, COLOR_GRAD2, "No perteneces a LSPD.");
 				return 1;
 			}
 		}
@@ -4749,7 +4749,7 @@ new model = GetVehicleModel( vehicleid );
 	}
 	return 1;
 }
-
+//GCCIEDIT46
 Team_LSPD(playerid){
 	if(IsPlayerConnected(playerid)){
 	    new leader = Info[playerid][pLeader];
@@ -4800,6 +4800,7 @@ Team_SAEM(playerid)
 	}
 	return 0;
 }
+
 
 Team_SAMD(playerid)
 {
@@ -5371,7 +5372,7 @@ IsAtHotDogCar(playerid)
 
 IsAtDeliverPatientPoint(playerid)
 {
-	if(IsPlayerInRangeOfPoint(playerid, 5.0,1174.6427,-1308.5641,13.9963))//SAMD
+	if(IsPlayerInRangeOfPoint(playerid, 5.0,1105.7490,-1346.6654,13.4004))//SAMD
 	{
 		return 1;
 	}
@@ -10151,7 +10152,7 @@ function SetPlayerToTeamColor(playerid)
 				}
 				else if(Team_SAMD(playerid))
 				{
-			    	SetPlayerColor(playerid, TEAM_MED_COLOR);
+			    	SetPlayerColor(playerid, TEAM_HIT_COLOR);
 				}
 				else
 				{
@@ -11392,8 +11393,8 @@ SAPDVehicles[8] = AddStaticVehicleEx(405,2314.2073,2495.4565,-7.6866,87.4553,0,0
 SAPDVehicles[12] = AddStaticVehicleEx(598,2307.6750,2430.7087,3.0446,359.8436,0,1,TIME_RESPAWN); //Police Car (LVPD)
 SAPDVehicles[13] = AddStaticVehicleEx(598,2303.3838,2430.9426,3.0422,1.1352,0,1,TIME_RESPAWN); //Police Car (LVPD)
 SAPDVehicles[14] = AddStaticVehicleEx(598,2298.9893,2430.9426,3.0421,359.3632,0,1,TIME_RESPAWN); //Police Car (LVPD)
-SAPDVehicles[15] = AddStaticVehicleEx(597,1570.4769,-1711.0386,5.6099,359.6323,0,0,TIME_RESPAWN); //Police Car (LSPD)
-SAPDVehicles[16] = AddStaticVehicleEx(597,1574.5977,-1710.0386,5.6105,359.6323,0,0,TIME_RESPAWN); //Police Car (LSPD)
+SAPDVehicles[15] = AddStaticVehicleEx(597,1570.4769,-1710.0386,5.6099,359.6323,0,1,TIME_RESPAWN); //Police Car (LSPD)
+SAPDVehicles[16] = AddStaticVehicleEx(597,1574.5977,-1710.0386,5.6105,359.6323,0,1,TIME_RESPAWN); //Police Car (LSPD)
 SAPDVehicles[17] = AddStaticVehicleEx(597,1578.7775,-1710.0386,5.6129,0.9912,0,1,TIME_RESPAWN); //Police Car (LSPD)
 SAPDVehicles[18] = AddStaticVehicleEx(596,1583.6348,-1710.0386,5.6121,359.6323,0,1,TIME_RESPAWN); //Police Car (LSPD)
 SAPDVehicles[19] = AddStaticVehicleEx(596,1587.5349,-1710.0386,5.6123,359.6323,0,1,TIME_RESPAWN); //Police Car (LSPD)
@@ -11409,15 +11410,19 @@ SAPDVehicles[28] = AddStaticVehicleEx(528,2298.4727,2464.5789,3.0914,269.4075,0,
 SAPDVehicles[29] = AddStaticVehicleEx(427,1545.6168,-1676.0986,6.0235,269.2612,0,1,TIME_RESPAWN); //Enforcer
 SAPDVehicles[30] = AddStaticVehicleEx(523,1601.9531,-1692.3549,5.4615,88.8655,0,1,TIME_RESPAWN); //HPV1000
 SAPDVehicles[31] = AddStaticVehicleEx(523,1601.2532,-1687.8022,5.4613,84.8135,0,1,TIME_RESPAWN); //HPV1000
-SAPDVehicles[32] = AddStaticVehicleEx(468,1601.1162,-1683.8667,5.4615,88.5449,0,1,TIME_RESPAWN); //HPV1000
-SAPDVehicles[33] = AddStaticVehicleEx(468,1584.9530,-1671.3857,5.4622,268.5632,0,1,TIME_RESPAWN); //HPV1000
-SAPDVehicles[34] = AddStaticVehicleEx(522,1585.8358,-1667.3435,5.4630,271.6741,0,1,TIME_RESPAWN); //HPV1000
-SAPDVehicles[35] = AddStaticVehicleEx(522,2316.3020,2484.5825,3.0758,88.1730,0,1,TIME_RESPAWN); //HPV1000
-SAPDVehicles[36] = AddStaticVehicleEx(521,2315.1953,2489.7195,3.0425,89.9091,0,0,TIME_RESPAWN); //FCR-900
-SAPDVehicles[37] = AddStaticVehicleEx(521,2314.9500,2495.5620,3.0398,90.0266,0,0,TIME_RESPAWN); //FCR-900
+SAPDVehicles[32] = AddStaticVehicleEx(523,1601.1162,-1683.8667,5.4615,88.5449,0,1,TIME_RESPAWN); //HPV1000
+SAPDVehicles[33] = AddStaticVehicleEx(523,1584.9530,-1671.3857,5.4622,268.5632,0,1,TIME_RESPAWN); //HPV1000
+SAPDVehicles[34] = AddStaticVehicleEx(523,1585.8358,-1667.3435,5.4630,271.6741,0,1,TIME_RESPAWN); //HPV1000
+SAPDVehicles[35] = AddStaticVehicleEx(523,2316.3020,2484.5825,3.0758,88.1730,0,1,TIME_RESPAWN); //HPV1000
+SAPDVehicles[36] = AddStaticVehicleEx(523,2315.1953,2489.7195,3.0425,89.9091,0,0,TIME_RESPAWN); //FCR-900
+SAPDVehicles[37] = AddStaticVehicleEx(523,2314.9500,2495.5620,3.0398,90.0266,0,0,TIME_RESPAWN); //FCR-900
 SAPDVehicles[38] = AddStaticVehicleEx(599,2314.9475,2500.6155,3.0386,90.0266,0,1,TIME_RESPAWN); //Rancher
 SAPDVehicles[39] = AddStaticVehicleEx(599,2285.4465,2474.1516,3.0447,358.2935,0,1,TIME_RESPAWN); //Rancher
 SAPDVehicles[40] = AddStaticVehicleEx(601,1544.0918,-1672.0835,5.6494,269.3475,0,1,TIME_RESPAWN); //S.W.A.T. Van
+SAPDVehicles[60] = AddStaticVehicleEx(416,1587.2928,-1606.3320,13.5337,358.0839,1,3,TIME_RESPAWN); // Ambulancia  52 GCCIEDIT56
+SAPDVehicles[61] = AddStaticVehicleEx(416,1580.3643,-1606.1052,13.4784,358.1244,1,3,TIME_RESPAWN); // Ambulancia  53
+SAPDVehicles[62] = AddStaticVehicleEx(416,1573.9518,-1606.1558,13.4601,358.1950,1,3,TIME_RESPAWN);// Ambulancia 54
+SAPDVehicles[3] = AddStaticVehicleEx(416,1123.5111,-1310.0973,13.6504,180.7970,1,3,TIME_RESPAWN); // Ambulancia  55
 
 SAPDVehicles[41] = AddStaticVehicleEx(560,2277.1316,2474.5647,3.0448,358.2864,0,0,TIME_RESPAWN); //Sultan
 SAPDVehicles[42] = AddStaticVehicleEx(560,2272.8865,2474.6919,3.0459,358.2864,0,0,TIME_RESPAWN); //Sultan
@@ -11512,10 +11517,10 @@ AddStaticVehicleEx(532,-108.5597,6.1032,4.0919,65.7671,0,0,60000);
 AddStaticVehicleEx(532,-104.8710,16.5226,4.0923,66.2940,0,0,60000);
 */
 //San Andreas Medical Departament (samd)
-SAMDVehicles[0] = AddStaticVehicleEx(416,1110.6876,-1310.4163,13.6483,179.1397,1,3,TIME_RESPAWN); // Ambulancia  52
-SAMDVehicles[1] = AddStaticVehicleEx(416,1114.9360,-1310.4139,13.6504,179.6742,1,3,TIME_RESPAWN); // Ambulancia  53
-SAMDVehicles[2] = AddStaticVehicleEx(416,1123.5111,-1310.0973,13.6504,180.7970,1,3,TIME_RESPAWN);// Ambulancia 54
-SAMDVehicles[3] = AddStaticVehicleEx(416,1123.5111,-1310.0973,13.6504,180.7970,1,3,TIME_RESPAWN); // Ambulancia  55
+//SAMDVehicles[0] = AddStaticVehicleEx(416,1587.2928,-1606.3320,13.5337,358.0839,1,3,TIME_RESPAWN); // Ambulancia  52 GCCIEDIT56dos
+//SAMDVehicles[1] = AddStaticVehicleEx(416,1580.3643,-1606.1052,13.4784,358.1244,1,3,TIME_RESPAWN); // Ambulancia  53
+//SAMDVehicles[2] = AddStaticVehicleEx(416,1573.9518,-1606.1558,13.4601,358.1950,1,3,TIME_RESPAWN);// Ambulancia 54
+//SAMDVehicles[3] = AddStaticVehicleEx(416,1123.5111,-1310.0973,13.6504,180.7970,1,3,TIME_RESPAWN); // Ambulancia  55
 //SAMDVehicles[4] = AddStaticVehicleEx(416,1123.5111,-1310.0973,13.6504,180.7970,1,3,TIME_RESPAWN); // Ambulancia  56
 //SAMDVehicles[5] = AddStaticVehicleEx(416,1126.30004883,-1329.69995117,13.39999962,0.00000000,1,3,TIME_RESPAWN); // Ambulancia  57
 //SAMDVehicles[6] = AddStaticVehicleEx(487,1161.40002441,-1367.80004883,26.89999962,0.00000000,1,3,TIME_RESPAWN); // Maverick 58
@@ -11546,8 +11551,9 @@ GobiernoCar[8] = AddStaticVehicleEx(579, -2761.2903, 404.0104, 4.6317, 270.5888,
 GobiernoCar[9] = AddStaticVehicleEx(560, -2761.6462, 356.8682, 4.1000, 270.4050,-1,1,TIME_RESPAWN); // Sentinel 160
 GobiernoCar[10] = AddStaticVehicleEx(560, -2761.7798, 351.1718, 4.1000, 270.4050,-1,1,TIME_RESPAWN); // Sentinel 160
 GobiernoCar[11] = AddStaticVehicleEx(560, -2761.6055, 345.6647, 4.1000, 270.4050,-1,1,TIME_RESPAWN); // Sentinel 160
+*/
 
-//Sistema Judicial
+/*Sistema Judicial GCCIEDIT53
 SistemaJudicialCar[0] = AddStaticVehicleEx(579, 1498.6732, -1510.4823, 13.4289, 0.0000, 1, 1,TIME_RESPAWN);
 SistemaJudicialCar[1] = AddStaticVehicleEx(579, 1517.8093, -1510.4823, 13.4289, 0.0000, 1, 1,TIME_RESPAWN);
 SistemaJudicialCar[2] = AddStaticVehicleEx(579, 1512.1165, -1510.4823, 13.4289, 0.0000, 1, 1,TIME_RESPAWN);
@@ -11565,6 +11571,7 @@ SistemaJudicialCar[13] = AddStaticVehicleEx(521, 1469.5166, -1510.9771, 13.0528,
 SistemaJudicialCar[14] = AddStaticVehicleEx(487, 1532.5687, -1539.5724, 37.0965, 0.0000, 1, 1,TIME_RESPAWN);
 SistemaJudicialCar[15] = AddStaticVehicleEx(487, 1470.4292, -1538.8131, 37.0965, 0.0000, 1, 1,TIME_RESPAWN);
 */
+
 //Santana
 Santana_Vehicle[0] = AddStaticVehicleEx(487,1291.4045,-786.9999,96.5897,0.1324,0,0,TIME_RESPAWN);  //Maverick
 Santana_Vehicle[1] = AddStaticVehicleEx(554,1254.5985,-804.7289,84.2281,176.7753,153,0,TIME_RESPAWN); //Huntley
@@ -11812,7 +11819,7 @@ CreateDynamic3DTextLabel("Para cambiar tu skin de familia\n{FFFFFF}Usa /fropa", 
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /taquilla",                          								 		 COLOR_LIGHTBLUE, 267.0328,109.8991,1004.6172,8.0); //sapd
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /fbi",                          								 		 COLOR_LIGHTBLUE, 310.3287,-1537.2428,-45.1338,8.0);//fbi
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /saem",                          								     	 COLOR_LIGHTBLUE, 332.6553,2345.9578,8905.4180,8.0);//saem
-CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /equipo",                          						         	 COLOR_LIGHTBLUE, 1188.8640,-1351.4312,2423.2649,8.0);//samd
+CreateDynamic3DTextLabel("Equipo medico\n{FFFFFF}Usa /equipo",                          						         	 COLOR_LIGHTBLUE, 261.8217,108.3169,1004.6172,8.0);//samd
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /equipo",                          						         	 COLOR_LIGHTBLUE, -2782.3835,273.8393,23.7078,8.0);//lstv
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /equipo",                          						         	 COLOR_LIGHTBLUE, 3162.8804,-1896.5898,1042.2070,8.0);//crazy motors
 CreateDynamic3DTextLabel("Para equiparte\n{FFFFFF}Usa /equipo",                          						         	 COLOR_LIGHTBLUE, 362.1189,-52.2308,-93.8500,8.0);//gobierno
@@ -11837,7 +11844,7 @@ CreateDynamic3DTextLabel("Solo líderes\n{FFFFFF}Usa /robarbanco",               
 CreateDynamic3DTextLabel("Depósito\n/embargar", 							                                                 COLOR_LIGHTBLUE, 1658.9924,-1807.1152,13.5508+0.6, 8.0);
 CreateDynamic3DTextLabel("Multas\n{FFFFFF}Usa /pagarm", 					                  								 COLOR_LIGHTBLUE, 240.4770,112.7777,1003.2188+0.6, 8.0); // Pagar Multas LS
 CreateDynamic3DTextLabel("Multas\n{FFFFFF}Usa /pagarm", 					                  								 COLOR_LIGHTBLUE, 234.4222,160.0437,1003.0438+0.6, 8.0); // Pagar Multas SF
-CreateDynamic3DTextLabel("Para Dejar El Paciente\nUtiliza {00C200}/dejarpt",                                                 COLOR_LIGHTRED,  1174.6427,-1308.5641,13.9963+0.6,4.0);// SAMD
+CreateDynamic3DTextLabel("Para Dejar El Paciente\nUtiliza {00C200}/dejarpt",                                                 COLOR_LIGHTRED,  1105.7490,-1346.6654,13.4004+0.6,4.0);// SAMD GCCIEDIT51
 CreateDynamic3DTextLabel("Para Dejar El Paciente\nUtiliza {00C200}/dejarpt",                                                 COLOR_LIGHTRED,  2684.0684,-2525.4067,13.3136+0.6,4.0);// SAEM
 CreateDynamic3DTextLabel("Ammunation - Para comprar un arma\n{FFFFFF}Usa /comprararmas",     								 COLOR_LIGHTBLUE, 308.15,-141.46,999.60+0.6,4.0); //ammu
 CreateDynamic3DTextLabel("Paintball Menu\n{FFFFFF}Usa /arena ",                                                    		     COLOR_LIGHTBLUE, 305.3528,-141.9280,1004.0625+0.6,8.0); // Paintball LS
@@ -11846,7 +11853,7 @@ CreateDynamic3DTextLabel("Paintball Menu\n{FFFFFF}Usa /arena ",                 
 /*GCCIEDIT17*/CreateDynamic3DTextLabel("Sitio de arresto LSPD\n{FFFFFF}Usa /arrestar",                                       COLOR_LIGHTBLUE, 215.2639,120.0654,999.0156+0.6,4.0);// Arresto LSPD   1568.6630,-1692.5809,5.8906
 //GCCIEDIT11CreateDynamic3DTextLabel("Sitio de arresto FBI\n{FFFFFF}Usa /arrestar",                                                      COLOR_LIGHTBLUE,317.4623,-1506.9045,24.9219+0.6,4.0); // Arresto Cia
 CreateDynamic3DTextLabel("Sitio de arresto LSPD Dillimore\n{FFFFFF}Usa /arrestar",										     COLOR_LIGHTBLUE,613.3228,-589.1623,17.2266+0.6,4.0);///arrest(LSPD)
-//CreateDynamic3DTextLabel("Solo Policías\n{FFFFFF}Usa /arrestojudicial",                            					 	     COLOR_LIGHTBLUE,1735.1194,-1325.8646,13.2494+0.6,3.0); // Arresto Sistema Judicial
+CreateDynamic3DTextLabel("Solo Policías\n{FFFFFF}Usa /arrestojudicial",                            					 	     COLOR_LIGHTBLUE,1735.1194,-1325.8646,13.2494+0.6,3.0); // Arresto Sistema Judicial GCCIEDIT56
 CreateDynamic3DTextLabel("Sitio de arresto SAEM\n{FFFFFF}Usa /prision",                                      				 COLOR_LIGHTBLUE,2648.9587,-2384.3145,13.6328+0.6,3.0); // Arresto SAEM
 //GCCIEDIT8CreateDynamic3DTextLabel("Presiona\n{FFFFFF}F Para entrar.",                                                                 COLOR_YELLOW,1568.5718,-1691.0177,5.8906+0.6,4.0); //LSPD Garage enter
 //GCCIEDIT9CreateDynamic3DTextLabel("Presiona\n{FFFFFF}F Para entrar.",                                                                 COLOR_YELLOW,1564.8464,-1666.1444,28.3956+0.6,4.0); //LSPD Roof enter
@@ -12199,7 +12206,7 @@ Talararbol[3] = CreatePickup(1239,2,-515.7106,-1457.4116,11.8509);
 CreatePickup(1239, 23, 1006.0530,52.7181,55.3221); // Comprar tienda electronica.
 CreatePickup(1239, 23, 1798.4093,-1721.1476,2.3278); // Tienda de muebles
 CreatePickup(1239, 23, 985.7003, -1171.2474, 24.9037); // Compra de Tarjeta De Credito LS
-CreatePickup(1240, 23, 1174.6427,-1308.5641,13.9963, -1); // DejarPT - SAMD
+CreatePickup(1240, 23, 1105.7490,-1346.6654,13.4004, -1); // DejarPT - SAMD GCCIEDIT52
 CreatePickup(1240, 23, 2684.0684,-2525.4067,13.3136, -1); // DejarPT - Guardia Nacional
 CreatePickup(1239, 23, 240.4770,112.7777,1003.2188, 500); // Pagar Multas LS
 CreatePickup(1240, 23, 1658.9924,-1807.1152,13.5508, -1); // Embargar
@@ -12220,7 +12227,7 @@ CreatePickup(1254, 23, 1407.7058,-1307.4529,9.0442); // pickup /contrato
 CreatePickup(334,  23, 267.0328,109.8991,1004.6172); // pickup SAPD
 CreatePickup(348,  23, 310.3287,-1537.2428,-45.1338); // pickup FBI
 CreatePickup(356,  23, 332.6553,2345.9578,8905.4180); // pickup SAEM
-CreatePickup(1239, 23, 1188.8640,-1351.4312,2423.2649); // pickup SAMD
+CreatePickup(1239, 23, 261.8217,108.3169,1004.6172); // pickup SAMD
 CreatePickup(2894, 23, -2782.3835,273.8393,23.7078); // pickup LSTV
 CreatePickup(365,  23, 3162.8804,-1896.5898,1042.2070); // pickup crazy motors
 //GCCIEDIT27CreatePickup(1212, 23, 362.1189,-52.2308,-93.8500); // pickup GOB
@@ -19170,7 +19177,8 @@ if(dialogid == 750) // Si cambiaste la ID del dialogo antes, cambiala aca tambie
 		if(IsAPolice(playerid))
 		    {
 		        ShowPlayerDialog(playerid, 1000, DIALOG_STYLE_MSGBOX, "{00F70C}Comandos - LSPD", "/radio /r /d /m /su /esposar /desesposar /ta(off) /ap /radargun /limpiarcamion /vmaletero /ram /luces\n/quitar /multar /detener /ref /ref2 /bkc /tlc /derechos /bar(2)(3) /qb /placa /embargar /tgunmaletero /(q)(p)spikes /placaex\n/limpiar /sospechosos /LSPDdiv /verllaves /registroveh /dejarmulta /LSPD /arrestar /destruirplanta /deposito /cono /bengala .", "Cerrar", "");
-
+				 /*GCCIEDIT47*/
+                SendClientMessage(playerid, -1, "Comandos - Medicos", "/samduty /sacarsangre /pcinfo /subirpt /dejarpt /curar /irpt");
 		    }
 		    else if(Team_Groove(playerid))
 			{
@@ -25901,19 +25909,19 @@ CMD:aceptararma(playerid,params[])
     }
    	zcmd(samduty, playerid, params[])
 	{
-        if(Team_SAMD(playerid))
+        if(Team_LSPD(playerid))
 		{
             if(OnDuty[playerid]== 0)
 			{
   				OnDuty[playerid] = 1;
       		    SetPlayerColor(playerid, TEAM_MED_COLOR);
-        		SendClientMessageEx(playerid, COLOR_WHITE, "Ahora estas en servicio.");
+        		SendClientMessageEx(playerid, COLOR_WHITE, "Ahora estas en servicio médico.");
       		}
       		else
 			{
         		OnDuty[playerid] = 0;
         		SetPlayerToTeamColor(playerid);
-        		SendClientMessageEx(playerid, COLOR_WHITE, "Ahora ya no estas en servicio.");
+        		SendClientMessageEx(playerid, COLOR_WHITE, "Ya no estas en servicio médico.");
       		}
 		}
         else SendClientMessageEx(playerid, -1, ""COL_ZCMD2"[ERROR]:{FFFFFF} No tienes autorización a usar este comando.");
@@ -27103,13 +27111,13 @@ CMD:aceptararma(playerid,params[])
     }
 	zcmd(equipo, playerid, params[])
 	{
-	    //*******************Facciones legales*******************
-	    if(Team_SAMD(playerid))
+	    //*******************Facciones legales******************* GCCIEDIT49
+	    if(Team_LSPD(playerid))
 		{
-			if(PlayerToPoint(5, playerid, 1188.8640,-1351.4312,2423.2649))
+			if(PlayerToPoint(1, playerid, 261.8217,108.3169,1004.6172))
 			{
 			    new eq[] = "Traje Doctor\nTraje Médico Blanco\nTraje Médico Azul\nTraje Médico Verde\nIndumentario Normal";
-			    SafeDialogEx(playerid,EQUIPO_DOC,DIALOG_STYLE_LIST,"{00F70C}Equipo SAMD",eq,"Equipar","Cancelar");
+			    SafeDialogEx(playerid,EQUIPO_DOC,DIALOG_STYLE_LIST,"{00F70C}Equipo medico",eq,"Equipar","Cancelar");
 			}
 		}
 		else if(Team_LSTV(playerid))
@@ -29816,7 +29824,7 @@ zcmd(jail, playerid, params[]){
 	       	}
           	else SendClientMessageEx(playerid, COLOR_WHITE,"");
 		}
-		else if(Team_SAMD(playerid)){
+		else if(Team_LSPD(playerid)){
 	      	if (PlayerToPoint(30, playerid,1141.40002441,-1293.69995117,20.50000000)){
 		       	MoveDynamicObject(hospitalgate, 1141.40002441,-1293.69995117,20.50000000, 1.5);
 		       	SetTimer("GateClose4", 7000, 0);
@@ -29937,7 +29945,7 @@ zcmd(jail, playerid, params[]){
         if(!sscanf(params, "d", giveplayerid)){
             if(OnDuty[playerid] == 0)   return SendClientMessageEx(playerid, COLOR_WHITE, "No estás de servicio.");
             if(IsPlayerConnected(giveplayerid)){
-                if(Team_SAMD(playerid)){
+                if(Team_LSPD(playerid)){ /*GCCIEDIT48*/
                     if (ProxDetectorS(5.0, playerid, giveplayerid)){
             		    new Float:HP, string[128]; GetPlayerHealth(giveplayerid, HP);
             		    if(HP < 100) return SendClientMessageEx(playerid, COLOR_WHITE, "El paciente debe estar con el máximo de vida.");
@@ -29956,7 +29964,7 @@ zcmd(jail, playerid, params[]){
         return 1;
     }
     zcmd(pcinfo, playerid, params[]){
-        if(Team_SAMD(playerid)){
+        if(Team_LSPD(playerid)){
 			new string[128];
         	ClearChatbox(playerid);
 	        SendClientMessageEx(playerid, 0x00D535FF, "PCU (Loading ... )");
@@ -34200,7 +34208,7 @@ CMD:mduty(playerid, params[])
 }
 CMD:irpt(playerid, params[])
 {
-	if(Team_SAMD(playerid))
+	if(Team_LSPD(playerid))
 	{
 	 new string[128], giveplayerid;
 		if(sscanf(params, "d", giveplayerid)) return SendClientMessageEx(playerid, COLOR_WHITE, "Utiliza: /irpt(paciente) (Jugador/ID)");
@@ -34241,7 +34249,7 @@ CMD:irpt(playerid, params[])
 }
 CMD:subirpt(playerid, params[])
 {
-    if(Team_SAMD(playerid) || (Info[playerid][pMember] == 1 && Info[playerid][pDivision] == 2) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3)
+    if(Team_LSPD(playerid) || (Info[playerid][pMember] == 1 && Info[playerid][pDivision] == 2) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3)
 	{
         if(IsPlayerInAnyVehicle(playerid))
 		{
@@ -34517,7 +34525,7 @@ CMD:ant(playerid, params[])
 	}
 CMD:dejarpt(playerid, params[])
 {
-    if(Team_SAMD(playerid) || (Info[playerid][pMember] == 1 && Info[playerid][pDivision] == 2) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3){
+    if(Team_LSPD(playerid) || (Info[playerid][pMember] == 1 && Info[playerid][pDivision] == 2) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3){
         if(IsPlayerInAnyVehicle(playerid)){
 			new string[128], giveplayerid;
 		    if(sscanf(params, "d", giveplayerid)) return SendClientMessageEx(playerid, COLOR_WHITE, "Utiliza: /dejarpt (playerid)");
@@ -34548,7 +34556,7 @@ CMD:dejarpt(playerid, params[])
                         SetPlayerInterior(giveplayerid, 0); Info[giveplayerid][pInt] = 0;
                         LoadObjects(giveplayerid);
                         SetPVarInt(giveplayerid, "PlayerCuffed", 0);
-                        if(Team_SAMD(playerid))
+                        if(Team_LSPD(playerid))
                         {
                         	format(string, sizeof(string), "Paramédico %s ha dejado satisfactoriamente a %s en el hospital.",GetPlayerNameEx(playerid), GetPlayerNameEx(giveplayerid));
 							SendRadioMessage(4, TEAM_MED_COLOR, string);
@@ -34558,9 +34566,9 @@ CMD:dejarpt(playerid, params[])
                         	format(string, sizeof(string), "%s ha dejado satisfactoriamente a %s en el hospital de SAEM.",GetPlayerNameEx(playerid), GetPlayerNameEx(giveplayerid));
 							SendRadioMessage(4, TEAM_MED_COLOR, string);
 						}
-                        if(IsPlayerInRangeOfPoint(playerid, 5.0,1174.6427,-1308.5641,13.9963))//SAMD
+                        if(IsPlayerInRangeOfPoint(playerid, 5.0,1105.7490,-1346.6654,13.4004))//SAMD
 						{
-                        	SetPlayerPos(giveplayerid, 1160.0034,-1335.1506,2423.0535);//SAMD
+                        	SetPlayerPos(giveplayerid, 1160.0034,-1335.1506,2423.0535);//SAMD GCCIEDIT50
                             SetPlayerVirtualWorld(giveplayerid, 600);
                             Info[giveplayerid][pVW] = 600;
                         }
@@ -34589,7 +34597,7 @@ CMD:dejarpt(playerid, params[])
 
 CMD:curar(playerid, params[])
 {
-    if(Team_SAMD(playerid) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3)//model
+    if(Team_LSPD(playerid) || Team_SAEM(playerid) && Info[playerid][pDivision] == 3)//model
 	{
  		if(Info[playerid][pTriageTime] != 0) return SendClientMessageEx(playerid, COLOR_WHITE, "Debes esperar 2 minutos para hacer esto de nuevo.");
 	    new string[128], giveplayerid;
@@ -48825,10 +48833,10 @@ RemoveBuildingForPlayer(playerid, 1315, 2311.2266, -1954.4531, 15.8125, 0.25);
 RemoveBuildingForPlayer(playerid, 1635, 2302.1016, -1958.6563, 17.0156, 0.25);
 RemoveBuildingForPlayer(playerid, 1226, 2309.3672, -1933.9609, 16.3906, 0.25);
 RemoveBuildingForPlayer(playerid, 712, 2300.9688, -1909.5547, 21.5000, 0.25);
-//*********************objetos Removidos Sistema judicial exterior*********************/ GCCIEDIT39
-//RemoveBuildingForPlayer(playerid, 4026, 1497.7969, -1543.7109, 17.5547, 0.25);
-//RemoveBuildingForPlayer(playerid, 4218, 1497.7031, -1546.6172, 43.9922, 0.25);
-//RemoveBuildingForPlayer(playerid, 4016, 1497.7969, -1543.7109, 17.5547, 0.25);
+//*********************objetos Removidos Sistema judicial exterior*********************// GCCIEDIT39 y GCCIEDIT54
+RemoveBuildingForPlayer(playerid, 4026, 1497.7969, -1543.7109, 17.5547, 0.25);
+RemoveBuildingForPlayer(playerid, 4218, 1497.7031, -1546.6172, 43.9922, 0.25);
+RemoveBuildingForPlayer(playerid, 4016, 1497.7969, -1543.7109, 17.5547, 0.25);
 //*********************objetos Removidos Grovve*********************
 RemoveBuildingForPlayer(playerid, 1265, 2488.8047, -1684.7891, 12.8125, 0.25);
 RemoveBuildingForPlayer(playerid, 3594, 2532.9844, -1719.4297, 13.1797, 0.25);
@@ -60405,14 +60413,14 @@ CreateDynamicObject(626, 1578.00000, -1622.30005, 14.60000,   0.00000, 0.00000, 
 CreateDynamicObject(626, 1577.09998, -1618.30005, 14.60000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(626, 1577.19995, -1618.90002, 14.60000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(3660, 1558.40002, -1619.90002, 14.20000,   0.00000, 0.00000, 0.00000);
-CreateDynamicObject(8557, 1560.30005, -1604.69995, 13.90000,   0.00000, 0.00000, 0.00000);
+//CreateDynamicObject(8557, 1560.30005, -1604.69995, 13.90000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1540.09998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1549.59998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1563.59998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1556.59998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1570.59998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1578.00000, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
-CreateDynamicObject(8557, 1587.80005, -1604.80005, 13.90000,   0.00000, 0.00000, 0.00000);
+//CreateDynamicObject(8557, 1587.80005, -1604.80005, 13.90000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1584.09998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1591.09998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
 CreateDynamicObject(1251, 1598.09998, -1606.40002, 12.50000,   0.00000, 0.00000, 0.00000);
@@ -63402,7 +63410,7 @@ CreateDynamicObject(1704, 2349.89990, -648.79999, 127.10000,   0.00000, 0.00000,
 CreateDynamicObject(1744, 2354.50000, -653.50000, 127.10000,   0.00000, 0.00000, 270.00000);
 
 //*********************Sistema judicial exterior*********************/
-/* GCCIEDIT4
+/* GCCIEDIT4 y GCCIEDIT55*/
 CreateDynamicObject(19446, 1509.17651, -1534.20959, 41.38132,   0.00000, 0.00000, 89.86987);
 CreateDynamicObject(19446, 1499.58704, -1534.19043, 41.40495,   0.00000, 0.00000, 89.86987);
 CreateDynamicObject(19446, 1490.33862, -1534.16687, 41.43822,   0.00000, 0.00000, 89.86987);
@@ -63722,7 +63730,7 @@ CreateDynamicObject(4724, 2168.77783, 1321.54065, 7700.04199,   0.00000, 0.00000
 CreateDynamicObject(4724, 2167.89819, 1322.43970, 7700.04785,   0.00000, 0.00000, 223.99475);
 CreateDynamicObject(1535, 2166.10327, 1287.90820, 7698.05469,   0.00000, 0.00000, 270.00000);
 CreateDynamicObject(1535, 2166.13721, 1284.88123, 7698.05469,   0.00000, 0.00000, 90.00000);
-*/
+
 
 //*********************Groove exterior*********************
 CreateDynamicObject(3594, 2266.19995, -1632.19995, 15.00000,   0.00000, 0.00000, 340.00000);
