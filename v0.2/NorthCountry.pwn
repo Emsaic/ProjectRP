@@ -564,6 +564,7 @@ new ZLMensaje[][] =
 };
 
 //********Texturas plaza***********
+new Puntoscaptura;
 new Plazatext;
 new Plazatext2;
 //*******************Sistema de Velocidad*******************
@@ -771,6 +772,7 @@ new idarma[] =
 12,
 23
 };
+
 
 enum vCoords
 {
@@ -2363,7 +2365,7 @@ new rejalcn2;
 //****************************Rejas ****************************
 new peaje1, peaje2;
 //*******************Vehiculos De Facciones*******************
-new SAPDVehicles[64];
+new SAPDVehicles[65];
 new SAMDVehicles[7];
 new MecanicosVehicle[7];
 new FBIVehicle[16];
@@ -9550,9 +9552,9 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 			}
 			if(recojercesped[playerid] == 0)
 			{
-				SendClientMessage(playerid,COLOR_GREY,"{FFFF00}[JOB]:{FFFFFF} Acepta el trabajo antes de comenzar la ruta.");
+				//SendClientMessage(playerid,COLOR_GREY,"{FFFF00}[JOB]:{FFFFFF} Acepta el trabajo antes de comenzar la ruta.");
 				RemovePlayerFromVehicle(playerid);
-				SetTimerEx("AntiRemovePlayerFromVehicle" , 2800, false, "i", playerid);
+				//SetTimerEx("AntiRemovePlayerFromVehicle" , 2800, false, "i", playerid);
 			}
 		}
  return 1;
@@ -10715,7 +10717,7 @@ LoadHouses() {
 			if(HouseInfo[iIndex][hRentable] == 0) format(szFileStr, sizeof(szFileStr), "Dueño\n%s\nNivel: %d\nID: %d",HouseInfo[iIndex][hOwner],HouseInfo[iIndex][hLevel],iIndex);
 			else format(szFileStr, sizeof(szFileStr), "{55F032}Dueño{FFFFFF}\n%s\n{55F032}Renta:{FFFFFF} $%d\n{55F032}Nivel:{FFFFFF} %d\n{55F032}Escribe /rentar para rentar aquí",HouseInfo[iIndex][hOwner],HouseInfo[iIndex][hRentFee],HouseInfo[iIndex][hLevel],iIndex);
 		}
-		else format(szFileStr, sizeof(szFileStr), "{55F032}En Venta!\n{55F032}Descripción:{FFFFFF} %s\n{55F032}Costo:{FFFFFF} $%d\n {55F032}Nivel:{FFFFFF} %d\n{55F032}Para comprar Utiliza: /comprarcasa",HouseInfo[iIndex][hDescription],HouseInfo[iIndex][hValue],HouseInfo[iIndex][hLevel],iIndex);
+		else format(szFileStr, sizeof(szFileStr), "{55F032}En Venta!\n{55F032}Descripción:{FFFFFF} %s\n{55F032}Costo:{FFFFFF} $%d\n {55F032}Nivel:{FFFFFF} %d\n {55F032}Para comprar Utiliza: /comprarcasa",HouseInfo[iIndex][hDescription],HouseInfo[iIndex][hValue],iIndex);
 		HouseInfo[iIndex][hPickupID] = CreateDynamicPickup(1272, 23, HouseInfo[iIndex][hExteriorX], HouseInfo[iIndex][hExteriorY], HouseInfo[iIndex][hExteriorZ]);
 		HouseInfo[iIndex][hTextID] = CreateDynamic3DTextLabel(szFileStr, COLOR_GREEN2, HouseInfo[iIndex][hExteriorX], HouseInfo[iIndex][hExteriorY], HouseInfo[iIndex][hExteriorZ]+0.5,10.0);
 		++iIndex;
@@ -11382,6 +11384,7 @@ public OnGameModeInit()
 SAPDVehicles[0] = AddStaticVehicleEx(525,1603.0066,-1620.2976,13.3778,90.0000,0,0,TIME_RESPAWN); //Tow Truck
 SAPDVehicles[1] = AddStaticVehicleEx(525,1603.0066,-1627.2511,13.3778,90.0000,0,0,TIME_RESPAWN); //Tow Truck
 SAPDVehicles[2] = AddStaticVehicleEx(525,1603.6855,-1606.5359,13.3651,178.9890,0,0,TIME_RESPAWN); //Tow Truck
+SAPDVehicles[63] = AddStaticVehicleEx(465,1564.9940,-1658.5963,28.3956,93.5897,0,0,TIME_RESPAWN); //dron
 
 SAPDVehicles[3] = AddStaticVehicleEx(426,2246.7810,2429.4995,3.0598,3.2701,0,0,TIME_RESPAWN); //Premier
 SAPDVehicles[4] = AddStaticVehicleEx(426,2240.1809,2465.7847,3.0441,269.0853,0,0,TIME_RESPAWN); //Premier
@@ -11951,7 +11954,7 @@ CreateDynamic3DTextLabel("Cajeros Automaticos <ATM>\nUtiliza {00C200}/atm\n{FFFF
 //Map Icon Los Santos
 CreateDynamicMapIcon(2065.5396,-1904.1349,13.4549, 19, 0, 0, 0, -1, 500.0); //LICENCIAS
 CreateDynamicMapIcon(2044.0854,-1402.1721,67.4172, 22, 0, 0, 0, -1, 500.0); // Hospital
-CreateDynamicMapIcon(969.4144,-1439.5056,13.3025, 30, 0, 0, 0, -1, 500.0); // SAPD
+//CreateDynamicMapIcon(969.4144,-1439.5056,13.3025, 30, 0, 0, 0, -1, 500.0); // SAPD GCCIEDIT57
 CreateDynamicMapIcon(325.6813,-1515.0637,36.0325, 61, 0, 0, 0, -1, 500.0); // FBI
 CreateDynamicMapIcon(1829.5077,-1842.7311,13.5781, 17, 0, 0, 0, -1, 500.0); // 24-7
 CreateDynamicMapIcon(1352.1354,-1759.1620,13.5541, 17, 0, 0, 0, -1, 500.0); // 24-7
@@ -11977,7 +11980,7 @@ CreateDynamicMapIcon(2949.7107,-1491.1680,12.9062, 9, 0, 0, 0, -1, 500.0); // PU
 CreateDynamicMapIcon(1997.3848,-2330.7671,15.8119, 5, 0, 0, 0, -1, 500.0); // AERO
 CreateDynamicMapIcon(982.1611,-1161.3580,25.0972, 52, 0, 0, 0, -1, 500.0); // Banco de LS
 CreateDynamicMapIcon(1310.8230,-1360.2109,37.8764, 25, 0, 0, 0, -1, 500.0); // Casino LS
-CreateDynamicMapIcon(1012.1055,-1952.3369,26.5119, 20, 0, 0, 0, -1, 500.0); // Bombero LS
+//CreateDynamicMapIcon(1012.1055,-1952.3369,26.5119, 20, 0, 0, 0, -1, 500.0); // Bombero LS
 CreateDynamicMapIcon(1361.2703,-1794.1290,13.7141, 36, 0, 0, 0, -1, 500.0); // Gasolinera Ayuntamiento
 CreateDynamicMapIcon(1929.629028,-1776.265869,13.546875, 36, 0, 0, 0, -1, 500.0); // Gasolinera Idlewood
 CreateDynamicMapIcon(999.966308,-919.887573,42.328125, 36, 0, 0, 0, -1, 500.0); // Gasolinera Vinewood
@@ -11992,13 +11995,13 @@ CreateDynamicMapIcon(1349.3491,-1878.1166,13.5392, 42, 0, 0, 0, -1, 500.0); // J
 CreateDynamicMapIcon(1219.6438, -1425.7828, 13.0908, 56, 0, 0, 0, -1, 500.0); // Job Vendedor de Moviles
 CreateDynamicMapIcon(1029.7059,-1340.5267,13.8093, 56, 0, 0, 0, -1, 500.0); // Job Chofer de Viajes LS
 CreateDynamicMapIcon(2104.8408,-1810.0991,13.5547, 56, 0, 0, 0, -1, 500.0); // Job Pizzero LS
-CreateDynamicMapIcon(1689.9009,-1494.9858,13.5469, 56, 0, 0, 0, -1, 500.0); // Job Vendedor de Drogas LS
+//CreateDynamicMapIcon(1689.9009,-1494.9858,13.5469, 56, 0, 0, 0, -1, 500.0); // Job Vendedor de Drogas LS
 CreateDynamicMapIcon(2218.0525,-2662.2483,13.5536, 51, 0, 0, 0, -1, 500.0); // Job Camionero LS
-CreateDynamicMapIcon(2487.4983,-1410.0270,28.8375, 56, 0, 0, 0, -1, 500.0); // Job Vendedor de Armas LS
+//CreateDynamicMapIcon(2487.4983,-1410.0270,28.8375, 56, 0, 0, 0, -1, 500.0); // Job Vendedor de Armas LS
 CreateDynamicMapIcon(463.3296,-1957.5437,16.7922, 56, 0, 0, 0, -1, 500.0); // Job Taxi LS
 CreateDynamicMapIcon(-104.2969,9.3283,3.1172, 56, 0, 0, 0, -1, 500.0); // Job Granjero LS
-CreateDynamicMapIcon(2355.1594,-1169.2037,28.0057, 24, 0, 0, 0, -1, 500.0); // Job Traficante de Drogas LS
-CreateDynamicMapIcon(1423.9009,-1355.9692,13.2810, 56, 0, 0, 0, -1, 500.0); // Job Vendedor De Chalecos LS
+//CreateDynamicMapIcon(2355.1594,-1169.2037,28.0057, 24, 0, 0, 0, -1, 500.0); // Job Traficante de Drogas LS
+//CreateDynamicMapIcon(1423.9009,-1355.9692,13.2810, 56, 0, 0, 0, -1, 500.0); // Job Vendedor De Chalecos LS
 CreateDynamicMapIcon(659.3577,-634.6320,16.3359, 56, 0, 0, 0, -1, 500.0); // Job Artesano
 CreateDynamicMapIcon(2420.0740, -1509.0592, 24.0213, 56, 0, 0, 0, -1, 500.0); // Job Heladero
 CreateDynamicMapIcon(2021.2024,-1274.8973,23.9814, 56, 0, 0, 0, -1, 500.0); // Job jardinero LS
@@ -19178,7 +19181,7 @@ if(dialogid == 750) // Si cambiaste la ID del dialogo antes, cambiala aca tambie
 		    {
 		        ShowPlayerDialog(playerid, 1000, DIALOG_STYLE_MSGBOX, "{00F70C}Comandos - LSPD", "/radio /r /d /m /su /esposar /desesposar /ta(off) /ap /radargun /limpiarcamion /vmaletero /ram /luces\n/quitar /multar /detener /ref /ref2 /bkc /tlc /derechos /bar(2)(3) /qb /placa /embargar /tgunmaletero /(q)(p)spikes /placaex\n/limpiar /sospechosos /LSPDdiv /verllaves /registroveh /dejarmulta /LSPD /arrestar /destruirplanta /deposito /cono /bengala .", "Cerrar", "");
 				 /*GCCIEDIT47*/
-                SendClientMessage(playerid, -1, "Comandos - Medicos", "/samduty /sacarsangre /pcinfo /subirpt /dejarpt /curar /irpt");
+                SendClientMessage(playerid, -1, "Comandos - Medicos: /samduty /sacarsangre /pcinfo /subirpt /dejarpt /curar /irpt");
 		    }
 		    else if(Team_Groove(playerid))
 			{
@@ -22889,6 +22892,40 @@ zcmd(dcallsign, playerid, params[])
     SendClientMessage(playerid,COLOR_ORANGE,"ERROR: {FFFFFF}Usted no se encuentra en un vehículo");
     }
 	return 1;
+}
+zcmd(dron, playerid, params[])
+{
+    if (IsPlayerInRangeOfPoint(playerid, 2.0, 1580.5273,-1634.7900,13.5612))
+    {
+	PutPlayerInVehicle(playerid, 4, 0);
+    }
+ return 1;
+}
+
+zcmd(dronsalir, playerid, params[])
+{
+
+    {
+	RemovePlayerFromVehicle(playerid);
+    SetPlayerPos(playerid, 1580.5273,-1634.7900,13.5612);
+    SetCameraBehindPlayer(playerid);
+    SetVehicleToRespawn(4);
+}
+ return 1;
+}
+zcmd(capturar, playerid, params[])
+{
+
+    if (IsPlayerInRangeOfPoint(playerid, 7.0, 2695.6880, -1704.6300, 11.8438))
+    {
+    
+    ++Puntoscaptura;
+    new string[128];
+    format(string, sizeof(string), "Puntos %d",Puntoscaptura);
+    SendClientMessage(playerid,0xFFFFFFAA,string);
+    
+     }
+ return 1;
 }
 
 zcmd(payday, playerid, params[])
@@ -29790,7 +29827,8 @@ zcmd(jail, playerid, params[]){
       			PlayerPlaySound(playerid, 1153, 1589.053344,-1638.123168,14.122960);
 				return 1;
 			
-			if (PlayerToPoint(15, playerid,1545.7398681641, -1627.7280273438, 15.206203460693)){
+			if (PlayerToPoint(15, playerid,1545.7398681641, -1627.7280273438, 15.206203460693))
+			{
       			MoveDynamicObject(pdgate2,1545.7392578125, -1627.7275390625, 20.381204605103, 3.0);
       			SetTimer("GateClose5", 7000, 0);
       			return 1;
@@ -29935,8 +29973,8 @@ zcmd(jail, playerid, params[]){
 		       	}
             else SendClientMessageEx(playerid, COLOR_WHITE,"");
 	    }
-	    else SendClientMessageEx(playerid, COLOR_WHITE,"Usted no tiene un mando a distancia.");
-	    return 1;*/
+	    else SendClientMessageEx(playerid, COLOR_WHITE,"Usted no tiene un mando a distancia.");*/
+	    return 1;
 
    }
    //zcmd(cpgarage, playerid, params[]) return CheckForCloseDoor(playerid);
@@ -37596,7 +37634,7 @@ CMD:staffvcasa(playerid, params[])
 		DestroyDynamicPickup(HouseInfo[house][hPickupID]);
 		HouseInfo[house][hPickupID] = CreateDynamicPickup(1272, 23, HouseInfo[house][hExteriorX], HouseInfo[house][hExteriorY], HouseInfo[house][hExteriorZ]);
 		DestroyDynamic3DTextLabel(HouseInfo[house][hTextID]);
-		format(string, sizeof(string), "En venta!\nDescripción: %s\nPrecio: $%d\n Nivel: %d\n/comprarcasa para comprarla.",HouseInfo[house][hDescription],HouseInfo[house][hValue],HouseInfo[house][hLevel]);
+		format(string, sizeof(string), "En venta!\nDescripción: %s\nPrecio: $%d\n Nivel: %d\ncomprarcasa para comprarla.",HouseInfo[house][hDescription],HouseInfo[house][hValue],HouseInfo[house][hLevel]);//GCCIEDIT58
 		HouseInfo[house][hTextID] = CreateDynamic3DTextLabel( string, COLOR_GREEN2, HouseInfo[house][hExteriorX], HouseInfo[house][hExteriorY], HouseInfo[house][hExteriorZ]+0.5, 10.0);
 		return 1;
 	}
@@ -41540,7 +41578,7 @@ CMD:semillas(playerid, params[])
 	return 1;
 }
 
-CMD:capturar(playerid, params[])
+CMD:capturarpunto(playerid, params[])
 {
 	new string[128];
 	new mypoint = -1;
@@ -55482,7 +55520,7 @@ SetObjectMaterial(Plazatext, 2, 3942, "bistro", "ahoodfence2", 0);
 SetObjectMaterial(Plazatext, 3, 4141, "civic01_lan", "crazy paving", 0);
 
 Plazatext2 = CreateObject(4186, 1479.55469, -1693.14063, 19.57810,   0.00000, 0.00000, 0.00000);
-
+Puntoscaptura = 0;
 SetObjectMaterial(Plazatext2, 0, 3908, "libertyfar", "Grass_128HV", 0);
 SetObjectMaterial(Plazatext2, 1, 4141, "civic01_lan", "sl_laoffblok2wall1", 0);
 SetObjectMaterial(Plazatext2, 2, 13734, "hillcliff_lahills", "cobbles_kb_256", 0);
