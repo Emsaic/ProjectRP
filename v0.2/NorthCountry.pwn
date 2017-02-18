@@ -89,6 +89,7 @@ static gTeam[MAX_PLAYERS];
 #define 			APAGARFIRE 					120 // Tiempo dado al bo para apagar el incendio (en segundos).
 #define 			USERFILE 					"accounts/%s.ini"
 #define             CAMARAPRUEBA                "camara%s.ini"
+#define             CAPTURAS_FILE                "capturas/%d.ini"
 #define 			USERFILEOLD 				"users/%s.ini"
 #define 			INFINITY_HEALTH 			Float:0x7F800000
 //*******************Defines FaceAngles*******************
@@ -2017,6 +2018,10 @@ enum reportinfo
 	ReportExpireTimer,
 	ReplyTimerr
 }
+
+
+
+
 new Reports[MAX_REPORTS][reportinfo];
 new CancelReport[MAX_PLAYERS];
 new JustReported[MAX_PLAYERS];
@@ -2840,6 +2845,8 @@ new Float:PrisonDillmore[2][3] = {
 {318.8560,313.0484,999.1484},
 {318.7299,317.0638,999.1484}
 };
+
+
 
 new Float:LSPDPrisonSpawns[6][3] = {
 {1415.2723,-1548.9581,4340.1563},
@@ -5666,6 +5673,20 @@ IsAPizzabike(carid)
 	return 0;
 }
 
+GuardarCapturas(iIndex) //capturasGCCI
+{
+    new lfile[24];
+    format(lfile, 24, LIDERES_FILE, iIndex);
+    if(!INI_Exist(lfile)) // If not existing
+    {
+        new INI:File = INI_Open(lfile);
+        INI_SetTag(File,"capturasdata");
+        INI_WriteInt(File,"numerocapturas", Puntoscaptura);
+        
+        INI_Close(File);
+    }
+    return 1;
+}
 IsAnAmbulance(carid)
 {
 	if(GetVehicleModel(carid) == 416)
@@ -39616,7 +39637,7 @@ CMD:clima(playerid, params[])
 		return 1;
 	}
 	new weather;
-	if(sscanf(params, "d", weather)) return SendClientMessageEx(playerid, COLOR_WHITE, "Utiliza: /clima [clima id]");
+	if(sscanf(params, "d", weather)) return SendClientMessageEx(playerid, COLOR_WHITE, "Utiliza: /climaf [clima id]");
 	if(weather < 0||weather > 45) { SendClientMessageEx(playerid, COLOR_GREY, "{A2DC35}[NOTA]:{FFFFFF} 0 a 45."); return 1; }
 	SetPlayerWeather(playerid, weather);
 	return 1;
